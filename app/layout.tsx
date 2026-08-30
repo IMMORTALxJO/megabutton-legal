@@ -1,0 +1,20 @@
+import type { Metadata } from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://immortalxjo.github.io/iphone-magic-button/'),
+  title: 'MegaButton · Privacy, Terms & Support',
+  description: 'Official privacy policy, terms of use, and support for MegaButton on iPhone and iPad.',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
