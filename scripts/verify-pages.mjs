@@ -19,4 +19,9 @@ for (const page of requiredFiles.filter((file) => file.endsWith('.html'))) {
   }
 }
 
+const supportHTML = await readFile(path.join(output, 'support/index.html'), 'utf8');
+if (!supportHTML.includes('github.com/IMMORTALxJO/megabutton-legal/issues/new')) {
+  throw new Error('Support page does not link to the public support repository');
+}
+
 console.log('GitHub Pages export contains every required route.');

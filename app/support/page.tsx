@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { LegalPage } from '@/components/site-shell';
 
 export const metadata = { title: 'Support · MegaButton' };
-const issuesURL = 'https://github.com/IMMORTALxJO/iphone-magic-button/issues/new';
+const issuesURL = 'https://github.com/IMMORTALxJO/megabutton-legal/issues/new';
 
 export default function SupportPage() {
   return (
