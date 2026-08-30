@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
-const repositoryBasePath = '/iphone-magic-button';
+const repositoryBasePath = '/megabutton-legal';
 
 const nextConfig: NextConfig = {
   output: 'export',
