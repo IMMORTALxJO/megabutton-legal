@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
+import appIcon from '@/public/megabutton-app-icon.png';
 
 const navigation = [
   { href: '/privacy', label: 'Privacy' },
@@ -10,7 +12,7 @@ const navigation = [
 export function Brand() {
   return (
     <Link className="brand" href="/" aria-label="MegaButton home">
-      <span className="brand-mark" aria-hidden="true"><span /><span /><span /></span>
+      <Image className="brand-mark" src={appIcon} alt="" aria-hidden="true" priority />
       <span>MegaButton</span>
     </Link>
   );
