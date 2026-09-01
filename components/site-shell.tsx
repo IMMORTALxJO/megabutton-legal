@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import appIcon from '@/public/megabutton-app-icon.png';
 
 const navigation = [
+  { href: '/documentation', label: 'Documentation' },
   { href: '/privacy', label: 'Privacy' },
   { href: '/terms', label: 'Terms' },
   { href: '/support', label: 'Support' },
@@ -23,7 +24,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
     <div className="site-shell">
       <header className="site-header">
         <Brand />
-        <nav aria-label="Legal and support navigation">
+        <nav aria-label="Site navigation">
           {navigation.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
         </nav>
       </header>

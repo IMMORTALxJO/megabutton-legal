@@ -4,9 +4,10 @@ import { SiteShell } from '@/components/site-shell';
 import appIcon from '@/public/megabutton-app-icon.png';
 
 const links = [
-  { href: '/privacy', number: '01', title: 'Privacy Policy', copy: 'What MegaButton accesses, where it is stored, and how to disconnect Google.' },
-  { href: '/terms', number: '02', title: 'Terms of Use', copy: 'The rules for using MegaButton and its optional Pro subscription.' },
-  { href: '/support', number: '03', title: 'Support', copy: 'Quick answers, troubleshooting steps, and a direct support channel.' },
+  { href: '/documentation', number: '01', title: 'Documentation', copy: 'Step-by-step guides for sharing and using your magic buttons.' },
+  { href: '/privacy', number: '02', title: 'Privacy Policy', copy: 'What MegaButton accesses, where it is stored, and how to disconnect Google.' },
+  { href: '/terms', number: '03', title: 'Terms of Use', copy: 'The rules for using MegaButton and its optional Pro subscription.' },
+  { href: '/support', number: '04', title: 'Support', copy: 'Quick answers, troubleshooting steps, and a direct support channel.' },
 ];
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="link-grid" aria-label="Legal documents and support">
+        <section className="link-grid" aria-label="Documentation, legal documents, and support">
           {links.map((item) => (
             <Link href={item.href} className="document-card" key={item.href}>
               <span className="card-number">{item.number}</span>

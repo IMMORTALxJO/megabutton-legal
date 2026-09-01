@@ -5,6 +5,7 @@ const output = path.resolve('out');
 const requiredFiles = [
   'index.html',
   'megabutton-app-icon.png',
+  'documentation/index.html',
   'privacy/index.html',
   'terms/index.html',
   'support/index.html',
@@ -49,6 +50,25 @@ for (const brandColor of ['#6752c7', '#faf6f0', '#272130', '#e4d8ff']) {
 const supportHTML = await readFile(path.join(output, 'support/index.html'), 'utf8');
 if (!supportHTML.includes('github.com/IMMORTALxJO/megabutton-legal/issues/new')) {
   throw new Error('Support page does not link to the public support repository');
+}
+
+const documentationHTML = await readFile(path.join(output, 'documentation/index.html'), 'utf8');
+for (const requiredCopy of [
+  'Share a button with other people',
+  'Share the entire spreadsheet',
+  'Editor',
+  'Pull down to refresh',
+]) {
+  if (!documentationHTML.includes(requiredCopy)) {
+    throw new Error(`Documentation page is missing required guidance: ${requiredCopy}`);
+  }
+}
+
+for (const page of ['index.html', 'privacy/index.html', 'terms/index.html', 'support/index.html']) {
+  const html = await readFile(path.join(output, page), 'utf8');
+  if (!html.includes('href="/documentation/"')) {
+    throw new Error(`${page} does not link to the documentation page`);
+  }
 }
 
 console.log('GitHub Pages export contains every required route.');
