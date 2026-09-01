@@ -18,6 +18,9 @@ for (const page of requiredFiles.filter((file) => file.endsWith('.html'))) {
   if (!html.includes('MegaButton')) {
     throw new Error(`${page} does not contain the MegaButton brand`);
   }
+  if (/(?:href|src)="\/megabutton-legal\//.test(html)) {
+    throw new Error(`${page} still uses the retired GitHub project base path`);
+  }
 }
 
 const homeHTML = await readFile(path.join(output, 'index.html'), 'utf8');

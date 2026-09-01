@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://immortalxjo.github.io/megabutton-legal/'),
+  metadataBase: new URL('https://mega-button.immortalxjo.com/'),
   title: 'MegaButton · Privacy, Terms & Support',
   description: 'Official privacy policy, terms of use, and support for MegaButton on iPhone and iPad.',
   verification: {
