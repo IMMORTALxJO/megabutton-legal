@@ -24,6 +24,11 @@ const homeHTML = await readFile(path.join(output, 'index.html'), 'utf8');
 if (!homeHTML.includes('MegaButton app icon')) {
   throw new Error('Home page does not use the product app icon');
 }
+if (!homeHTML.includes(
+  '<meta name="google-site-verification" content="rKe5JhpfX7En_Uh4NtsVJBt5wCdHzVSrWAxibxAo03U"/>'
+)) {
+  throw new Error('Home page does not contain the Google Search Console verification tag');
+}
 
 const { readdir } = await import('node:fs/promises');
 const nextDirectory = path.join(output, '_next');
