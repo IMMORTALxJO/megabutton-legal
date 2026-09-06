@@ -64,6 +64,28 @@ for (const requiredCopy of [
   }
 }
 
+const privacyHTML = await readFile(path.join(output, 'privacy/index.html'), 'utf8');
+for (const requiredDisclosure of [
+  'Data protection and security',
+  'HTTPS/TLS',
+  'Apple Keychain',
+  'After First Unlock',
+  'This Device Only',
+  'protected iOS App Group',
+  'iOS sandbox and entitlement controls',
+  'signed Control Center extension',
+  'does not operate a server',
+  'Google OAuth credentials, spreadsheet contents, or recorded values',
+  'not included in analytics',
+  'diagnostic logs',
+  'Disconnect Google and Delete Local Data',
+  'Effective September 6, 2026',
+]) {
+  if (!privacyHTML.includes(requiredDisclosure)) {
+    throw new Error(`Privacy Policy is missing required data-protection disclosure: ${requiredDisclosure}`);
+  }
+}
+
 for (const page of ['index.html', 'privacy/index.html', 'terms/index.html', 'support/index.html']) {
   const html = await readFile(path.join(output, page), 'utf8');
   if (!html.includes('href="/documentation/"')) {

@@ -41,10 +41,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
   );
 }
 
-export function LegalPage({ eyebrow, title, summary, children }: {
+export function LegalPage({ eyebrow, title, summary, effectiveDate = 'August 30, 2026', children }: {
   eyebrow: string;
   title: string;
   summary: string;
+  effectiveDate?: string;
   children: ReactNode;
 }) {
   return (
@@ -54,7 +55,7 @@ export function LegalPage({ eyebrow, title, summary, children }: {
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p>{summary}</p>
-          <span>Effective August 30, 2026</span>
+          <span>{`Effective ${effectiveDate}`}</span>
         </header>
         <article className="legal-copy">{children}</article>
       </main>
