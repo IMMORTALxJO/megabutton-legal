@@ -1,27 +1,14 @@
 {
-  "name": "sites-project",
+  "name": "megabutton-legal-site",
   "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "build:pages": "next build",
-    "verify:pages": "node scripts/verify-pages.mjs",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "16.3.3",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
-  },
-  "devDependencies": {
-    "@types/node": "22.19.19",
-    "@types/react": "19.2.14",
-    "@types/react-dom": "19.2.3",
-    "typescript": "5.9.3"
+    "build": "node scripts/build.mjs && node scripts/verify-pages.mjs",
+    "build:pages": "node scripts/build.mjs",
+    "verify:pages": "node scripts/verify-pages.mjs"
   },
   "type": "module"
 }

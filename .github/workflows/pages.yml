@@ -30,8 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build static site
-        env:
-          NEXT_TELEMETRY_DISABLED: 1
         run: npm run build:pages
       - name: Verify required routes
         run: npm run verify:pages
