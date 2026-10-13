@@ -82,8 +82,8 @@ for (const [file, maximumBytes] of [
 }
 
 const supportHTML = await readFile(path.join(output, 'support/index.html'), 'utf8');
-if (!supportHTML.includes('github.com/IMMORTALxJO/megabutton-legal/issues/new')) {
-  throw new Error('Support page does not link to the public support repository');
+if (!supportHTML.includes('mailto:megabutton.dev@gmail.com')) {
+  throw new Error('Support page does not link to the support email');
 }
 
 const documentationHTML = await readFile(path.join(output, 'documentation/index.html'), 'utf8');
