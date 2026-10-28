@@ -9,7 +9,11 @@ const siteURL = 'https://megabutton.immortalxjo.com';
 const socialImage = `${siteURL}/megabutton-app-icon-hero.webp`;
 const googleVerification = 'rKe5JhpfX7En_Uh4NtsVJBt5wCdHzVSrWAxibxAo03U';
 
+const operatorName = 'Individual Entrepreneur Aleksandr Prusov';
+const operatorAddress = 'Georgia, Tbilisi, Gldani district, Gldani estate, micro/district “A”, building 70, apartment 2';
+
 const navigation = [
+  { href: '/about/', label: 'About us' },
   { href: '/documentation/', label: 'Documentation' },
   { href: '/privacy/', label: 'Privacy' },
   { href: '/terms/', label: 'Terms' },
@@ -38,6 +42,7 @@ function siteShell(content) {
       ${brand({ footer: true })}
       <p>Small actions. Reliable records.</p>
       ${navigationLinks('Footer navigation')}
+      <p class="operator">${operatorName}<br>${operatorAddress}</p>
       <p class="copyright">© 2026 MegaButton</p>
     </footer>
   </div>`;
@@ -153,6 +158,22 @@ const pages = [
     </main>`),
   },
   {
+    path: '/about/',
+    title: 'About MegaButton — Who We Are &amp; What We Do',
+    description: 'MegaButton is developed and operated by Individual Entrepreneur Aleksandr Prusov, an independent software developer building simple iPhone and iPad tools for Google Sheets.',
+    body: legalPage({
+      eyebrow: 'About us',
+      title: 'Small tools, built with care.',
+      summary: 'MegaButton is an independent software product that turns repeatable actions into simple buttons.',
+      effectiveDate: 'October 28, 2026',
+      content: `
+        <section><h2>Who we are</h2><p>MegaButton is developed, published, and operated by ${operatorName}, an independent software developer registered in Georgia at ${operatorAddress}.</p></section>
+        <section><h2>What we do</h2><p>Our business is the design, development, and distribution of mobile software. Our product, MegaButton, is an iPhone and iPad app that lets you turn a repeatable moment, such as logging a time, a note, or a number, into a single button and record each press as a structured row in your own Google Sheets.</p><p>MegaButton also works from Control Center, and buttons can be shared with other people by sharing the underlying spreadsheet through Google Sheets.</p></section>
+        <section><h2>How we work</h2><p>We build for privacy by design. MegaButton does not run an account database, show ads, or track you: your sheet contents stay between your device and Google. The app is free to use with one button, and an optional auto-renewing Pro subscription through the App Store unlocks unlimited buttons and spreadsheets.</p></section>
+        <section><h2>Get in touch</h2><p>Questions, feedback, or business enquiries: <a href="mailto:megabutton.dev@gmail.com">megabutton.dev@gmail.com</a>. For app help, see our <a href="/support/">Support</a> page.</p></section>`,
+    }),
+  },
+  {
     path: '/documentation/',
     title: 'MegaButton Documentation — Setup, Sharing &amp; Google Sheets',
     description: 'Learn how to set up, share, and use MegaButton with Google Sheets on iPhone and iPad, including access through Google Picker.',
@@ -188,6 +209,7 @@ const pages = [
       eyebrow: 'Privacy Policy',
       title: 'Your sheets stay yours.',
       summary: 'MegaButton is designed without a developer-operated data backend. The app connects your device directly to Google and uses Apple for subscription billing.',
+      effectiveDate: 'October 28, 2026',
       content: `
         <section><h2>1. What MegaButton accesses</h2><p>When you connect Google, MegaButton requests permission to:</p><ul><li>access Google Sheets files created by MegaButton or explicitly selected by you through Google Picker;</li><li>read and edit those selected spreadsheet files to discover, create, edit, delete, and run the buttons you request; and</li><li>read basic information about the connected Google account, including its email address, to keep the connection tied to the correct account and identify the source of Timestamp entries.</li></ul><p>MegaButton requests only the limited <code>drive.file</code> permission. This lets the app work with files it creates or that you choose through Google Picker, but not unrelated files in your Google Drive.</p></section>
         <section><h2>2. How information is used</h2><p>MegaButton uses selected spreadsheet content only to find and manage your buttons and perform the actions you request. Depending on the button type, an entry may include the time, connected-account email, text, and number you submit. People who can access the spreadsheet may see its buttons and entries.</p></section>
@@ -197,7 +219,8 @@ const pages = [
         <section><h2>6. Tracking, analytics, and advertising</h2><p>MegaButton uses TelemetryDeck to understand general app usage. It receives an anonymized app-installation identifier, basic device and app information, and events such as creating or pressing a button.</p><p>Analytics never include your Google identity or email, spreadsheet or button names, recorded entries, Google credentials, or spreadsheet contents. MegaButton does not use analytics for tracking or advertising. See <a href="https://telemetrydeck.com/privacy">TelemetryDeck’s privacy information</a>.</p></section>
         <section><h2>7. Retention and deletion</h2><p>In Settings, choose <strong>Disconnect Google and Delete Local Data</strong> to ask Google to revoke MegaButton’s access and remove its credentials, cached buttons, spreadsheet references, and unsent entries from this device. You can also remove MegaButton in your Google Account settings.</p><p>Disconnecting does not delete your Google Sheets or entries already recorded there. You can manage or delete them in Google Sheets. Use the in-app disconnect action before deleting the app to ensure MegaButton removes its local data.</p></section>
         <section><h2>8. Children and international use</h2><p>MegaButton is not directed to children under 13. Google and Apple may process data in countries other than yours according to their own terms and privacy policies.</p></section>
-        <section><h2>9. Changes and contact</h2><p>Material changes will be published here with a new effective date. For privacy questions, write to <a href="mailto:megabutton.dev@gmail.com">megabutton.dev@gmail.com</a>. Please do not include OAuth tokens, spreadsheet contents, or other sensitive data in your message.</p></section>`,
+        <section><h2>9. Who operates MegaButton</h2><p>MegaButton is managed and regulated by ${operatorName}, registered at ${operatorAddress}. This entity is the controller of the limited information described in this policy.</p></section>
+        <section><h2>10. Changes and contact</h2><p>Material changes will be published here with a new effective date. For privacy questions, write to <a href="mailto:megabutton.dev@gmail.com">megabutton.dev@gmail.com</a>. Please do not include OAuth tokens, spreadsheet contents, or other sensitive data in your message.</p></section>`,
     }),
   },
   {
@@ -208,6 +231,7 @@ const pages = [
       eyebrow: 'Terms of Use',
       title: 'A clear agreement for a simple tool.',
       summary: 'These terms govern your use of MegaButton and its optional auto-renewing Pro subscription.',
+      effectiveDate: 'October 28, 2026',
       content: `
         <section><h2>1. Eligibility and acceptance</h2><p>By downloading or using MegaButton, you agree to these terms and Apple’s Standard Licensed Application End User License Agreement. You must be legally able to enter this agreement and comply with the terms for your Google and Apple accounts.</p></section>
         <section><h2>2. The service</h2><p>MegaButton helps you create controls that read from and write to specific Google Sheets it creates for you or that you select through Google Picker. You are responsible for your sheets, button configuration, entries, collaborators, account security, and backups. Google Sheets and App Store services are provided by Google and Apple, not MegaButton.</p></section>
@@ -217,7 +241,8 @@ const pages = [
         <section><h2>6. Availability and disclaimers</h2><p>MegaButton is provided “as is” and “as available.” Network outages, Google API changes, permissions, device state, or external services can delay or prevent an entry. Verify important records in Google Sheets. To the extent permitted by law, no warranty is made that the app will be uninterrupted, error-free, or suitable for medical, emergency, financial, legal, or other safety-critical recordkeeping.</p></section>
         <section><h2>7. Liability</h2><p>To the fullest extent permitted by applicable law, the developer is not liable for indirect, incidental, special, consequential, or lost-data damages arising from MegaButton. Nothing in these terms limits rights or liability that cannot legally be limited.</p></section>
         <section><h2>8. Suspension, termination, and changes</h2><p>You may stop using the app at any time. Access may be limited when reasonably necessary for security, legal compliance, or misuse. Updated terms will be posted here with a new effective date. Continued use after an update means you accept the revised terms where lawful.</p></section>
-        <section><h2>9. Contact</h2><p>Questions about these terms can be sent to <a href="mailto:megabutton.dev@gmail.com">megabutton.dev@gmail.com</a>.</p></section>`,
+        <section><h2>9. Who operates MegaButton</h2><p>MegaButton is managed and regulated by ${operatorName}, registered at ${operatorAddress}. These terms are an agreement between you and this entity.</p></section>
+        <section><h2>10. Contact</h2><p>Questions about these terms can be sent to <a href="mailto:megabutton.dev@gmail.com">megabutton.dev@gmail.com</a>.</p></section>`,
     }),
   },
   {

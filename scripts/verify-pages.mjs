@@ -10,6 +10,7 @@ const requiredFiles = [
   'styles.css',
   'megabutton-app-icon-small.webp',
   'megabutton-app-icon-hero.webp',
+  'about/index.html',
   'documentation/index.html',
   'privacy/index.html',
   'terms/index.html',
@@ -112,10 +113,20 @@ for (const requiredDisclosure of [
   'limited <code>drive.file</code> permission',
   'including its email address',
   'entries waiting to be sent',
-  'Effective September 10, 2026',
+  'Effective October 28, 2026',
+  'managed and regulated by Individual Entrepreneur Aleksandr Prusov',
 ]) {
   if (!privacyHTML.includes(requiredDisclosure)) {
     throw new Error(`Privacy Policy is missing required data-protection disclosure: ${requiredDisclosure}`);
+  }
+}
+
+for (const page of ['index.html', 'about/index.html', 'documentation/index.html', 'privacy/index.html', 'terms/index.html', 'support/index.html']) {
+  const html = await readFile(path.join(output, page), 'utf8');
+  for (const required of ['Individual Entrepreneur Aleksandr Prusov', 'Gldani estate', 'href="/about/"']) {
+    if (!html.includes(required)) {
+      throw new Error(`${page} is missing the operator footer or About link: ${required}`);
+    }
   }
 }
 
@@ -128,6 +139,7 @@ for (const page of ['index.html', 'privacy/index.html', 'terms/index.html', 'sup
 
 const canonicalURLs = {
   'index.html': 'https://megabutton.immortalxjo.com/',
+  'about/index.html': 'https://megabutton.immortalxjo.com/about/',
   'documentation/index.html': 'https://megabutton.immortalxjo.com/documentation/',
   'privacy/index.html': 'https://megabutton.immortalxjo.com/privacy/',
   'terms/index.html': 'https://megabutton.immortalxjo.com/terms/',
