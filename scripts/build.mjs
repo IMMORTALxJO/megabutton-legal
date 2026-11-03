@@ -91,6 +91,7 @@ function metadata({ title, description, path: route, preloadHero = false, struct
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${socialImage}">
   ${preloadHero ? '<link rel="preload" href="/megabutton-app-icon-hero.webp" as="image" type="image/webp" fetchpriority="high">' : ''}
+  <link rel="preconnect" href="${siteURL}">
   <link rel="stylesheet" href="/styles.css">${structuredData ? `
   <script type="application/ld+json">${JSON.stringify(structuredData).replace(/</g, '\\u003c')}</script>` : ''}`;
 }
