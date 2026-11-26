@@ -176,16 +176,16 @@ const pages = [
   },
   {
     path: '/documentation/',
-    title: 'MegaButton Documentation — Setup, Sharing &amp; Google Sheets',
-    description: 'Learn how to set up, share, and use MegaButton with Google Sheets on iPhone and iPad, including access through Google Picker.',
+    title: 'MegaButton Documentation — Setup, Sharing &amp; Shortcuts',
+    description: 'Set up and share MegaButton buttons, record with Apple Shortcuts, and configure Double Back Tap on iPhone.',
     body: siteShell(`<main class="documentation-page">
       <header class="legal-hero documentation-hero">
         <p class="eyebrow">Documentation</p>
         <h1>Make every button work for your people.</h1>
-        <p>Practical guides for setting up MegaButton and using it together.</p>
+        <p>Practical guides for sharing buttons, recording with Apple Shortcuts, and setting up Back Tap on iPhone.</p>
       </header>
       <div class="documentation-layout">
-        <aside class="documentation-index" aria-label="Documentation topics"><p>Guides</p><a href="#share-a-button">Share a button</a></aside>
+        <aside class="documentation-index" aria-label="Documentation topics"><p>Guides</p><a href="#share-a-button">Share a button</a><a href="#shortcuts">Apple Shortcuts</a><a href="#double-back-tap">Double Back Tap</a></aside>
         <article class="documentation-copy" id="share-a-button">
           <header class="guide-header"><p class="guide-label">Sharing · 5 steps</p><h2>Share a button with other people</h2><p>MegaButton buttons live inside Google Sheets. To let someone else discover and use a button, give their Google account edit access to the spreadsheet that owns it, then have them select that spreadsheet for MegaButton through Google Picker.</p></header>
           <div class="documentation-note" role="note"><strong>Share the entire spreadsheet</strong><p>Google Sheets permissions apply to the whole spreadsheet, not to one MegaButton button or worksheet. The person you invite can see and edit every worksheet in that spreadsheet. MegaButton’s limited Google permission does not automatically gain access when you share the file: the invited person must explicitly select it through Google Picker.</p></div>
@@ -198,6 +198,30 @@ const pages = [
             <li><div><span>5</span></div><section><h3>Select the shared spreadsheet</h3><p>On the MegaButton home screen, tap <strong>Add</strong>, choose <strong>Load Existing</strong>, then select the shared spreadsheet in Google Picker. MegaButton refreshes automatically and shows every supported button in that spreadsheet.</p></section></li>
           </ol>
           <section class="after-sharing"><h3>What happens next</h3><p>Each person presses the same shared button from their own device, and new entries go to the same Google Sheets worksheet. Depending on the button type, an entry can include the time, the connected account’s email, text, and a number.</p><p>If the button does not appear, confirm that the invited account has <strong>Editor</strong> access and selected the spreadsheet through <strong>Load Existing</strong>, then pull down to refresh. Google sharing changes can take a short time to become visible.</p></section>
+          <section id="shortcuts">
+            <header class="guide-header"><p class="guide-label">Shortcuts · iPhone &amp; iPad</p><h2>Record with Apple Shortcuts</h2><p>Run a saved MegaButton button from a shortcut, or pass text and a number from earlier actions in your workflow.</p></header>
+            <h3>Before you start</h3><p>Open MegaButton, connect Google, and create or load the button you want to use. Make sure it is available in the app. Free/Pro button limits also apply to shortcuts, and your device may require authentication.</p>
+            <ol class="sharing-steps">
+              <li><div><span>1</span></div><section><h3>Create a shortcut</h3><p>Open Apple’s <strong>Shortcuts</strong> app, tap <strong>+</strong>, and search the available actions for <strong>MegaButton</strong>.</p></section></li>
+              <li><div><span>2</span></div><section><h3>Choose the recording action</h3><p>For a <strong>Timestamp</strong> button, add <strong>Record Timestamp</strong> and select your saved button in <strong>Button</strong>. This action has no Text or Number fields: every run records the current time without asking for values.</p><p>For a <strong>Timestamp + Text + Number</strong> button, add <strong>Record MegaButton</strong>, select the button, and fill in <strong>Text</strong> and <strong>Number</strong>. Use fixed values or variables from earlier shortcut actions. For example, pass <strong>Coffee</strong> as Text and <strong>2.5</strong> as Number.</p></section></li>
+              <li><div><span>3</span></div><section><h3>Name, save, and run</h3><p>Give the shortcut a recognizable name and save it. Run it from Shortcuts. Each successful run creates a real entry in the selected worksheet, so check the destination in Google Sheets after your first run.</p></section></li>
+            </ol>
+            <div class="documentation-note" role="note"><strong>Values and delivery</strong><p>Record MegaButton runs without opening MegaButton’s entry form. Text must be nonempty after trimming and no longer than 500 characters; Number must be a finite number. Negative numbers, fractions, and zero are supported. Timestamp buttons ignore Text and Number when used with Record MegaButton.</p><p>The action returns <strong>Recorded</strong> or <strong>Queued</strong>. A queued entry keeps its original time and values. Reopen MegaButton to let it send pending entries when access returns; reconnect Google if requested. If a selected button was deleted or requires Pro, the action reports an error without recording.</p></div>
+            <p>For the basics, see Apple’s <a href="https://support.apple.com/guide/shortcuts/create-a-custom-shortcut-apd84c576f8c/ios">guide to creating a custom shortcut</a>.</p>
+          </section>
+          <section id="double-back-tap">
+            <header class="guide-header"><p class="guide-label">Back Tap · iPhone only</p><h2>Set up Double Back Tap</h2><p>Double-tap the back of your iPhone to run your assigned MegaButton button. Set up the shortcut and iOS binding once, then change the target button inside MegaButton.</p></header>
+            <ol class="sharing-steps">
+              <li><div><span>1</span></div><section><h3>Assign a button in MegaButton</h3><p>Open the button’s <strong>…</strong> menu, choose <strong>Set trigger → Double Back Tap</strong>, and follow the setup instructions. The <strong>2×</strong> badge shows the assignment saved in MegaButton; you still need to configure iOS below.</p></section></li>
+              <li><div><span>2</span></div><section><h3>Create the permanent Back Tap shortcut</h3><p>In Apple Shortcuts, tap <strong>+</strong>, find MegaButton’s <strong>Double Back Tap</strong> action, and add it. Name the shortcut <strong>MegaButton Double Back Tap</strong> and save it. This action has no Button parameter: it uses the current assignment in MegaButton.</p></section></li>
+              <li><div><span>3</span></div><section><h3>Bind Double Tap in iOS Settings</h3><p>On your iPhone, open <strong>Settings → Accessibility → Touch → Back Tap → Double Tap</strong>. Scroll to the shortcuts and select <strong>MegaButton Double Back Tap</strong>. MegaButton cannot set or check this system binding for you.</p></section></li>
+              <li><div><span>4</span></div><section><h3>Try the gesture</h3><p>Double-tap the back of your iPhone. A Timestamp button records the current time through the delivery queue. A Timestamp + Text + Number button opens MegaButton’s entry form so you can enter the values. This differs from Record MegaButton, which takes its values from the shortcut.</p></section></li>
+            </ol>
+            <h3>Add Triple Back Tap</h3><p>Repeat the steps with <strong>Set trigger → Triple Back Tap</strong>, MegaButton’s <strong>Triple Back Tap</strong> action, a separate shortcut named <strong>MegaButton Triple Back Tap</strong>, and <strong>Triple Tap</strong> in iOS Settings. Each gesture can target one button, and both gestures can target the same button.</p>
+            <h3>Change or disable the button</h3><p>To reassign a gesture, choose it under another button’s <strong>… → Set trigger</strong>. The existing shortcut will use the new assignment without edits in Shortcuts or Settings. Choose <strong>Disable trigger</strong> on a button to clear all of its gesture assignments; other buttons’ assignments stay in place. An unassigned gesture does nothing. Deleting a button or disconnecting Google clears its assignments.</p><p>To remove the system gesture too, return to Back Tap in iOS Settings, open Double Tap or Triple Tap, and choose <strong>None</strong>. You can reopen MegaButton’s instructions under <strong>Set trigger → iOS Setup…</strong>.</p>
+            <div class="documentation-note" role="note"><strong>If Back Tap does not run your button</strong><p>First run the permanent shortcut directly in Shortcuts, check the assignment in MegaButton, and confirm that the matching shortcut is selected in iOS Settings. The 2× / 3× badges show local assignments, not a verified iOS setup. Free/Pro limits still apply. Back Tap is an iPhone feature; if the setting is unavailable, check Apple’s <a href="https://support.apple.com/111772">Back Tap requirements</a>.</p></div>
+            <p>See Apple’s <a href="https://support.apple.com/guide/shortcuts/apd897693606/ios">guide to running shortcuts with Back Tap</a> for the system setup.</p>
+          </section>
         </article>
       </div>
     </main>`),
