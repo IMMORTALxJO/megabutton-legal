@@ -113,7 +113,7 @@ for (const requiredDisclosure of [
   'limited <code>drive.file</code> permission',
   'including its email address',
   'entries waiting to be sent',
-  'Effective October 28, 2026',
+  'Effective November 26, 2026',
   'managed and regulated by Individual Entrepreneur Aleksandr Prusov',
 ]) {
   if (!privacyHTML.includes(requiredDisclosure)) {
